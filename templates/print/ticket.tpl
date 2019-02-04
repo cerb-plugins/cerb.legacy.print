@@ -50,7 +50,11 @@
 				{if isset($headers.to)}<b>To:</b> {$headers.to}<br>{/if}
 				{if isset($headers.cc)}<b>Cc:</b> {$headers.cc}<br>{/if}
 				<br>
-				{$message->getContent()|trim|escape|nl2br nofilter}<br>
+				{if $message->html_attachment_id}
+					{$message->getContentAsHtml() nofilter}<br>
+				{else}
+					{$message->getContent()|trim|escape|nl2br nofilter}<br>
+				{/if}
 				
 				{if isset($message_notes.$message_id) && is_array($message_notes.$message_id)}
 					{foreach from=$message_notes.$message_id item=note name=notes key=note_id}

@@ -31,7 +31,7 @@
 	<b>{'common.watchers'|devblocks_translate|capitalize}:</b> 
 	{foreach from=$context_watchers item=context_worker name=context_watchers}
 	{$context_worker->getName()}{if !$smarty.foreach.context_watchers.last}, {/if}
-	{/foreach}	
+	{/foreach}
 {/if}
 <br>
 
@@ -44,7 +44,11 @@
 	{if isset($headers.date)}<b>Date:</b> {$headers.date}<br>{/if}
 	{if isset($headers.subject)}<b>Subject:</b> {$headers.subject}<br>{/if}
 	<br>
-	{$message->getContent()|trim|escape|nl2br nofilter}<br>
+	{if $message->html_attachment_id}
+		{$message->getContentAsHtml() nofilter}<br>
+	{else}
+		{$message->getContent()|trim|escape|nl2br nofilter}<br>
+	{/if}
 	<br>
 	{assign var=message_id value=$message->id}
 	{if isset($message_notes.$message_id) && is_array($message_notes.$message_id)}

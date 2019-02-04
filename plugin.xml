@@ -4,7 +4,7 @@
 	<name>Legacy Printing</name>
 	<description>This plugin reproduces the old print functionality from Cerb versions earlier than 9.0.</description>
 	<author>Webgroup Media, LLC.</author>
-	<version>0.1.0</version>
+	<version>0.1.1</version>
 	<link></link>
 	<image>plugin.png</image>
 
