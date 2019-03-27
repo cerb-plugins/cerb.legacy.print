@@ -5,12 +5,8 @@
 </head>
 
 <body>
-{assign var=logo_url value=$settings->get('cerberusweb.core','helpdesk_logo_url','')}
-{if empty($logo_url)}
-<img src="{devblocks_url}c=resource&p=cerberusweb.core&f=images/wgm/cerb_logo.png{/devblocks_url}">
-{else}
-<img src="{$logo_url}">
-{/if}
+
+<div style="display: inline-block;max-width: 100vw;background: url({devblocks_url}c=resource&p=cerberusweb.core&f=css/logo{/devblocks_url}?v={$settings->get('cerberusweb.core','ui_user_logo_updated_at',0)}) no-repeat;background-size:contain;width:281px;height:80px;"></div>
 <br>
 
 <h2 style="margin-bottom:0px;">{$ticket->subject}</h2>
